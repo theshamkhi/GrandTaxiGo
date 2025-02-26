@@ -16,6 +16,23 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+        <!-- Photo -->
+        <div class="mt-4">
+            <x-input-label for="photo" :value="__('Photo')" />
+            <x-text-input type="file" id="photo" class="block mt-1 w-full" name="photo" />
+            <x-input-error :messages="$errors->get('photos')" class="mt-2" />
+        </div>
+        
+        <!-- Role -->
+        <div class="mt-4">
+            <x-input-label for="role" :value="__('Role')" />
+            <select id="role" name="role" class="block mt-1 w-full" required>
+                <option value="passenger" {{ old('role') == 'passenger' ? 'selected' : '' }}>Passenger</option>
+                <option value="driver" {{ old('role') == 'driver' ? 'selected' : '' }}>Driver</option>
+            </select>
+            <x-input-error :messages="$errors->get('role')" class="mt-2" />
+        </div>
+
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
